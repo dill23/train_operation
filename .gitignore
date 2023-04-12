@@ -1,1 +1,7 @@
 git.txt
+.replit
+replit.nix
+.breakpoints
+pyproject.toml
+replit.nix
+poetry.lock
