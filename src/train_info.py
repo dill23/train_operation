@@ -1,4 +1,5 @@
 import traceback
+import json
 
 class TrainInfo():
 
@@ -12,6 +13,8 @@ class TrainInfo():
       cardic['carid'] = carid
       cartype = input("enter the car type: ")
       cardic['cartype'] = cartype
+      carbrand = input('enter the name of the manufacturer: ')
+      cardic['carbrand'] = carbrand
     except KeyError:
       print("something went wrong entering the key into the dic.", traceback.print_exc())
     except ValueError:
@@ -19,3 +22,9 @@ class TrainInfo():
     else:
       self.cars.append(cardic)
       print(self.cars[0]['cartype'])
+
+  def saveinfo(self):
+    with open('savejson.json','w') as savefile:
+      output = json.dumps(self.cars, indent=2)
+      savefile.write(output)
+  

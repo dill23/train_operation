@@ -7,4 +7,5 @@ import train_info as ti
 train = ti.TrainInfo()
 
 train.addcar()
+train.saveinfo()
 
