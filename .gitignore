@@ -7,3 +7,4 @@ replit.nix
 poetry.lock
 .config
 venv/
+src/__pycache__/
