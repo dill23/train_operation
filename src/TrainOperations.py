@@ -4,8 +4,10 @@ __version__ = "0.0.1"
 __author__ = "Dylan Hilse"
 import train_info as ti
 
-train = ti.TrainInfo()
+def main():
+  train = ti.TrainInfo()
+  train.addcar()
+  train.saveinfo()
 
-train.addcar()
-train.saveinfo()
-
+if __name__ == '__main__':
+  main()
