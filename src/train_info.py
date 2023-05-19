@@ -1,29 +1,41 @@
 import json
+import os
 
 class TrainInfo():
 
   def __init__(self):
-      self.Train = {}
-
+      if os.path.exists("savejson.json") == True:
+          TrainFile = open("savejson.json", "r")
+      else:
+          TrainFile = open("savejson.json", 'xr')
+      self.Train = json.load(TrainFile)
+      
+  def maketrain(self):
+      try:
+        train = {}
+        trainName = input("Please enter a name for the train. Thanks!: ")
+      except ValueError:
+          print("something went wrong.")
+      else:
+        train[trainName] = trainName
+        self.Train[trainName] = train
   def addcar(self):
     while True:  
       try:
-        cardic = {}
-        trainName = input("Please enter a name for the train. Thanks!: ")
+        trainName = input("Please enter the name for the train: ")
+        train = self.Train
         carid = int(input("please enter the cars id number or enter -1 to quit.: "))
         if carid == -1:
           break 
-        cardic['carid'] = carid
+        train[trainName]['carid'] = carid
         cartype = input("enter the car type: ")
-        cardic['cartype'] = cartype
+        train[trainName]['cartype'] = cartype
         carbrand = input('enter the name of the manufacturer: ')
-        cardic['carbrand'] = carbrand
+        train[trainName]['carbrand'] = carbrand
       except KeyError:
         print("something went wrong entering the key into the dic, keyError")
       except ValueError:
         print('something went wrong, ValueError')
-      else:
-        self.Train[trainName] = cardic
 
   def saveinfo(self):
     with open('savejson.json','w') as savefile:
