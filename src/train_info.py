@@ -6,8 +6,10 @@ class TrainInfo():
   def __init__(self):
       if os.path.exists("savejson.json") == True:
           TrainFile = open("savejson.json", "r")
-      else:
-          TrainFile = open("savejson.json", 'xr')
+      elif os.path.exists("savejson.json") == False:
+          TrainFile = open("savejson.json", 'w')
+          TrainFile.close()
+          TrainFile = open("savejson.json", "r")
       self.Train = json.load(TrainFile)
       
   def maketrain(self):
@@ -17,9 +19,10 @@ class TrainInfo():
       except ValueError:
           print("something went wrong.")
       else:
-        train[trainName] = trainName
+        #train[trainName] = trainName
         self.Train[trainName] = train
   def addcar(self):
+    count = 1
     while True:  
       try:
         trainName = input("Please enter the name for the train: ")
@@ -27,19 +30,37 @@ class TrainInfo():
         carid = int(input("please enter the cars id number or enter -1 to quit.: "))
         if carid == -1:
           break 
-        train[trainName]['carid'] = carid
+        
+        print(count)
+        caridkey = 'carid' + str(count)
+        cartypekey = 'cartype' + str(count)
+        carbrandkey = 'carbrand' + str(count)
+        train[trainName][caridkey] = carid
         cartype = input("enter the car type: ")
-        train[trainName]['cartype'] = cartype
+        train[trainName][cartypekey] = cartype
         carbrand = input('enter the name of the manufacturer: ')
-        train[trainName]['carbrand'] = carbrand
+        train[trainName][carbrandkey] = carbrand
+        count += 1
+        print(count)
       except KeyError:
         print("something went wrong entering the key into the dic, keyError")
       except ValueError:
         print('something went wrong, ValueError')
 
+  def deleteTrain(self):
+      try:
+          train = self.Train
+          trainName = input("enter tha name of the train you want to delete: ")
+          sure = input("are you sure Y or N: ").upper()
+          if sure == 'Y':
+            del train[trainName]
+      except KeyError:
+          print('something went wrong')
+      else:
+          self.Train = train
+
   def saveinfo(self):
     with open('savejson.json','w') as savefile:
       output = json.dumps(self.Train, indent=2)
       savefile.write(output)
-      print(self.Train)
   

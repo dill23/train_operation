@@ -1,7 +1,16 @@
 {
-  "M": {
-    "carid": 1112554,
-    "cartype": "m",
-    "carbrand": "m"
+  "hh": {
+    "hh": "hh",
+    "carid1": 10239839,
+    "cartype1": "wagon",
+    "carbrand1": "marklin",
+    "carid2": 11234,
+    "cartype2": "wagon",
+    "carbrand2": "marklin"
+  },
+  "g": {
+    "carid1": 12345,
+    "cartype1": "wagon",
+    "carbrand1": "marklin"
   }
 }
