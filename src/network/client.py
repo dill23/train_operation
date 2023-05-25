@@ -1,0 +1,6 @@
+import socket
+
+HEADER = 64
+PORT = 34197
+FORMAT ='UTF-8'
+SERVER = '172.31.196.19'
