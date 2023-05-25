@@ -1,6 +1,17 @@
-import socket
+import socket as st
 
 HEADER = 64
 PORT = 34197
 FORMAT ='UTF-8'
 SERVER = '172.31.196.19'
+DISCONNECT_MESSEGE = '!disconect'
+ADDR = (SERVER, PORT)
+
+client = st.socket(st.AF_INET, st.SOCK_STREAM)
+client.connect(ADDR)
+
+def send(msg):
+    message = msg.encode(FORMAT)
+    msg_length = len(message)
+    send_length = str(msg_length).encode(FORMAT)
+    send_length += b' ' * (HEADER - len(send_length))
