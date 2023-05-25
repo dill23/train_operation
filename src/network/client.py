@@ -3,7 +3,7 @@ import socket as st
 HEADER = 64
 PORT = 34197
 FORMAT ='UTF-8'
-SERVER = '172.31.196.19'
+SERVER = st.gethostbyname(st.gethostname())
 DISCONNECT_MESSEGE = '!disconect'
 ADDR = (SERVER, PORT)
 
@@ -15,3 +15,7 @@ def send(msg):
     msg_length = len(message)
     send_length = str(msg_length).encode(FORMAT)
     send_length += b' ' * (HEADER - len(send_length))
+    client.send(send_length)
+    client.send(message)
+
+send('hello')

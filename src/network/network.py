@@ -12,6 +12,7 @@ server = st.socket(st.AF_INET, st.SOCK_STREAM)
 server.bind(ADDR)
 
 def handle_client(conn, addr):
+    print(f"[new connection] {addr} connected")
     connected = True
     while connected:
         msg_length = conn.recv(HEADER).decode(FORMAT)
@@ -24,7 +25,7 @@ def handle_client(conn, addr):
     conn.close()
 
 def start():
-    print(SERVER)
+    print("started")
     server.listen()
     while True:
         conn, addr = server.accept()
