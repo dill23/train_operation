@@ -13,7 +13,6 @@ def main():
   #train.deleteTrain()
   #train.saveinfo()
   network.start()
-  
-
+ 
 if __name__ == '__main__':
     main()

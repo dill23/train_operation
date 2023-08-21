@@ -1,7 +1,7 @@
 import socket as st
 
 HEADER = 64
-PORT = 34197
+PORT = 5050
 FORMAT ='UTF-8'
 SERVER = st.gethostbyname(st.gethostname())
 DISCONNECT_MESSEGE = '!disconect'
@@ -18,4 +18,5 @@ def send(msg):
     client.send(send_length)
     client.send(message)
 
-send('hello')
+
+send("hello")
