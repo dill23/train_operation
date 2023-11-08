@@ -1,6 +1,6 @@
 import json
 import os
-import sys
+
 
 class TrainInfo():
 
