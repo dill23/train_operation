@@ -19,6 +19,10 @@ class TrainInfo():
           'cars' : {}
         }
         trainName = input("Please enter a name for the train. Thanks!: ")
+        classtrain = input('Please enter the class # of the train. ')
+        traincompany = input('what company would be running this train?')
+        train['class'] = classtrain
+        train['company'] = traincompany
       except ValueError:
           print("something went wrong.")
       else:
