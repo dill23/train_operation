@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 
 class TrainInfo():
 
@@ -14,7 +15,9 @@ class TrainInfo():
       
   def maketrain(self):
       try:
-        train = {}
+        train = {
+          'cars' : {}
+        }
         trainName = input("Please enter a name for the train. Thanks!: ")
       except ValueError:
           print("something went wrong.")
@@ -26,26 +29,29 @@ class TrainInfo():
     while True:  
       try:
         trainName = input("Please enter the name for the train: ")
-        train = self.Train
+        train = {}
         carid = int(input("please enter the cars id number or enter -1 to quit.: "))
         if carid == -1:
-          break 
+          break
         
         print(count)
         caridkey = 'carid' + str(count)
         cartypekey = 'cartype' + str(count)
         carbrandkey = 'carbrand' + str(count)
-        train[trainName][caridkey] = carid
+        print(caridkey, cartypekey, carbrandkey)
+        train[caridkey] = carid
         cartype = input("enter the car type: ")
-        train[trainName][cartypekey] = cartype
+        train[cartypekey] = cartype
         carbrand = input('enter the name of the manufacturer: ')
-        train[trainName][carbrandkey] = carbrand
+        train[carbrandkey] = carbrand
         count += 1
-        print(count)
+        print(train)
+        self.Train[trainName]['cars'].update(train)
       except KeyError:
         print("something went wrong entering the key into the dic, keyError")
       except ValueError:
         print('something went wrong, ValueError')
+        
 
   def deleteTrain(self):
       try:
