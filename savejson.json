@@ -38,22 +38,5 @@
       "cartype1": "t",
       "carbrand1": "t"
     }
-  },
-  "dd": {
-    "cars": {
-      "carid2": 227524,
-      "cartype2": "d",
-      "carbrand2": "d"
-    }
-  },
-  "ddd": {
-    "cars": {
-      "carid1": 333,
-      "cartype1": "ew",
-      "carbrand1": "ee",
-      "carid2": 3234433,
-      "cartype2": "sss",
-      "carbrand2": "sssss"
-    }
   }
 }
