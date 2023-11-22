@@ -6,12 +6,12 @@ class TrainInfo():
 
   def __init__(self):
       if os.path.exists("savejson.json") == True:
-          TrainFile = open("savejson.json", "r")
+          self.TrainFile = open("savejson.json", "r")
       elif os.path.exists("savejson.json") == False:
           TrainFile = open("savejson.json", 'w')
           TrainFile.close()
-          TrainFile = open("savejson.json", "r")
-      self.Train = json.load(TrainFile)
+          self.TrainFile = open("savejson.json", "r")
+      self.Train = json.load(self.TrainFile)
       
   def maketrain(self):
       try:
@@ -73,4 +73,4 @@ class TrainInfo():
     with open('savejson.json','w') as savefile:
       output = json.dumps(self.Train, indent=2)
       savefile.write(output)
-  
+      self.TrainFile.close()

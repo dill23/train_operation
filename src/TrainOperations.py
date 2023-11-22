@@ -8,9 +8,9 @@ import train_info as ti
 
 def main():
   train = ti.TrainInfo()
-  #train.maketrain()
-  #train.addcar()
-  train.deleteTrain()
+  train.maketrain()
+  train.addcar()
+  #train.deleteTrain()
   train.saveinfo()
   #network.start()
  
