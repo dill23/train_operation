@@ -1,6 +1,6 @@
 import json
 import os
-from  cryptography.fernet import Fernet
+import security as s
 
 class TrainInfo():
 
