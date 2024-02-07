@@ -1,6 +1,6 @@
  
 
-__version__ = "0.0.5"
+__version__ = "0.0.6"
 __author__ = "Dylan Hilse"
 import train_info as ti
 #import network.network
